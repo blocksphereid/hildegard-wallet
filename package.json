@@ -1,0 +1,58 @@
+{
+  "name": "@almadao/hildegard-wallet",
+  "version": "0.0.1-beta.0",
+  "description": "Browser wallet for mobile web-based applications.",
+  "main": "index.js",
+  "scripts": {
+    "install:hooks": ".maintain/install-hooks.sh",
+    "build": "tsc",
+    "check": "npm run format && npm run test && npm run lint && npm run build",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint && npm run build",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "test": "jest --config ./test/jest-e2e.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blocksphereid/hildegard-wallet.git"
+  },
+  "keywords": [
+    "web3",
+    "polkadotjs",
+    "polkadot",
+    "crypto",
+    "wallet",
+    "crypto-js"
+  ],
+  "author": "Agustinus Theodorus <agustinustheoo@gmail.com>",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/blocksphereid/hildegard-wallet/issues"
+  },
+  "homepage": "https://github.com/blocksphereid/hildegard-wallet#readme",
+  "devDependencies": {
+    "@debionetwork/polkadot-provider": "^0.0.12-beta.6",
+    "@polkadot/api": "^8.11.1",
+    "@polkadot/keyring": "^9.7.1",
+    "@polkadot/ui-keyring": "^2.7.1",
+    "@polkadot/util-crypto": "^9.7.1",
+    "@types/jest": "^28.1.4",
+    "babel-jest": "^28.1.2",
+    "crypto-js": "^4.1.1",
+    "docker-compose": "^0.23.17",
+    "jest": "^28.1.2",
+    "prettier": "^2.5.1",
+    "regenerator-runtime": "^0.13.9",
+    "ts-jest": "^28.0.5",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.5.5"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
