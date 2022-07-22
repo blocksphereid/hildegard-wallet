@@ -10,7 +10,7 @@ export class HildegardWallet {
   static async #load(): Promise<void> {
     if (this.#loaded) return;
     await cryptoWaitReady();
-    keyring.loadAll({ ss58Format: 42, type: 'sr25519' });
+    this.#loaded = true;
   }
 
   static async mnemonicGenerate(): Promise<string> {

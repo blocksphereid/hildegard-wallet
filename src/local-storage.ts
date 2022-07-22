@@ -1,27 +1,27 @@
-import CryptoJS from 'crypto-js';
+import { AES } from "crypto-js";
 
 class LocalStorage {
   /**
    * Keys
    */
-  static HILDEGARD_KS: 'HILDEGARD_KS';
+  static HILDEGARD_KS: 'hildegard:keystore';
 
   /**
    * getter setters
    */
   static setKeystore(_ks: string, password: string): void {
-    const keystore = CryptoJS.AES.encrypt(_ks, password);
-    window.localStorage.setItem(this.HILDEGARD_KS, keystore);
+    const keystore = AES.encrypt(_ks, password);
+    window.localStorage.setItem(LocalStorage.HILDEGARD_KS, keystore.toString());
   }
 
   static getKeystore(password: string): string {
-    const encryptedKeystore = window.localStorage.getItem(this.HILDEGARD_KS);
+    const encryptedKeystore = window.localStorage.getItem(LocalStorage.HILDEGARD_KS);
     if (encryptedKeystore === null) throw new Error('Keystore not found');
-    return CryptoJS.AES.decrypt(encryptedKeystore, password);
+    return AES.decrypt(encryptedKeystore, password).toString();
   }
 
   static removeKeystore() {
-    window.localStorage.removeItem(this.HILDEGARD_KS);
+    window.localStorage.removeItem(LocalStorage.HILDEGARD_KS);
   }
 }
 

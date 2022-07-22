@@ -1,6 +1,6 @@
 {
   "name": "@almadao/hildegard-wallet",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1-beta.6",
   "description": "Browser wallet for mobile web-based applications.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,7 +14,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint && npm run build",
+    "prepublishOnly": "npm run lint && npm run build",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/blocksphereid/hildegard-wallet#readme",
   "devDependencies": {
-    "@debionetwork/polkadot-provider": "^0.0.12-beta.6",
+    "@debionetwork/polkadot-provider": "^0.0.12",
     "@polkadot/api": "^8.11.1",
     "@polkadot/keyring": "^9.7.1",
     "@polkadot/ui-keyring": "^2.7.1",
@@ -47,6 +47,7 @@
     "@types/jest": "^28.1.4",
     "babel-jest": "^28.1.2",
     "crypto-js": "^4.1.1",
+    "@types/crypto-js": "^4.1.1",
     "docker-compose": "^0.23.17",
     "jest": "^28.1.2",
     "prettier": "^2.5.1",
